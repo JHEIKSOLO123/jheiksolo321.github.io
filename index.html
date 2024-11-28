@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra Nuestro Producto</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="logo.svg" alt="Logo" class="logo"> <!-- Cambia la ruta a tu logo -->
+            </div>
+            <h1>Compra Nuestro Producto</h1>
+        </header>
+        
+        <nav>
+            <ul class="menu">
+                <li><a href="#" class="menu-item active" onclick="activarMenu(this)">Inicio</a></li>
+                <li><a href="RORATIOS/index.html" class="menu-item" onclick="activarMenu(this)">Caracteristicas</a></li>
+                <li><a href="SITIO/fondos.html" class="menu-item" onclick="activarMenu(this)">Contacto</a></li>
+                <li><a href="producto4.html" class="menu-item" onclick="activarMenu(this)">Productos</a></li>
+            </ul>
+        </nav>
+        
+        <div class="hero">
+            <h1>¡Descubre el Producto Que Cambiará Tu Vida!</h1>
+            <p>Innovador, eficiente y a un precio increíble.</p>
+            <a href="#compra" class="cta-button">Compra Ahora</a>
+
+            <div class="dropdown">
+                <button class="dropbtn" onclick="toggleDropdown('dropdownMenu1')">Mas Opciones</button>
+                <div id="dropdownMenu1" class="dropdown-content">
+                    <a href="#opcion1">Características Especiales</a>
+                    <a href="#opcion2">Preguntas Frecuentes</a>
+                    <a href="#opcion3">Promociones</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn" onclick="toggleDropdown('dropdownMenu2')">Función Adicional</button>
+                <div id="dropdownMenu2" class="dropdown-content">
+                    <a href="#opcion4">Soporte Técnico</a>
+                    <a href="#opcion5">Testimonios de Clientes</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn" onclick="toggleDropdown('dropdownMenu3')">Más Información</button>
+                <div id="dropdownMenu3" class="dropdown-content">
+                    <a href="#opcion6">Garantía de Satisfacción</a>
+                    <a href="#opcion7">Últimas Novedades</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-info">
+            <a href="nuevo.html">
+                <img src="COMPU.jpg" alt="Producto" class="product-image">
+            </a>
+            <div class="details">
+                <h2>Características Principales</h2>
+                <ul>
+                    <li>✔ Calidad Superior</li>
+                    <li>✔ Sostenible y Ecológico</li>
+                    <li>✔ Diseño Moderno y Atractivo</li>
+                </ul>
+                <p class="price">Solo <span>Bs.2000 </span> (Precio regular: Bs.2500)</p>
+            </div>
+        </div>
+        <div class="product-info">
+            <a href="nuevo.html">
+                <img src="COMPU4.jpg" alt="Producto" class="product-image">
+            </a>
+            <div class="details">
+                <h2>Características Principales</h2>
+                <ul>
+                    <li>✔ Calidad Superior</li>
+                    <li>✔ Sostenible y Ecológico</li>
+                    <li>✔ Diseño Moderno y Atractivo</li>
+                </ul>
+                <p class="price">Solo <span>Bs.2000 </span> (Precio regular: Bs.2500)</p>
+            </div>
+        </div>
+        <div class="product-info">
+            <a href="nuevo.html">
+                <img src="COMPU5.jpg" alt="Producto" class="product-image">
+            </a>
+            <div class="details">
+                <h2>Características Principales</h2>
+                <ul>
+                    <li>✔ Calidad Superior</li>
+                    <li>✔ Sostenible y Ecológico</li>
+                    <li>✔ Diseño Moderno y Atractivo</li>
+                </ul>
+                <p class="price">Solo <span>Bs.2000 </span> (Precio regular: Bs.2500)</p>
+            </div>
+        </div>
+
+        <div class="testimonial">
+            <h2>Lo Que Dicen Nuestros Clientes</h2>
+            <p>"¡Este producto ha cambiado completamente mi rutina! Totalmente recomendado." - Cliente Satisfecho</p>
+        </div>
+
+        <div id="compra" class="purchase-section">
+            <h2>Haz Tu Pedido</h2>
+            <form form id="form_venta" onSubmit="enviarFormulario(event)">
+                <input type="text" placeholder="Tu Nombre" id="nombre" name="nombre" required>
+                <input type="email" placeholder="Tu Email" id="correo" name="correo" required>
+                <button type="submit">Comprar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Compra Nuestro Producto. Todos los derechos reservados.</p>
+    </footer>
+    
+    <script>
+        function toggleDropdown(menuId) {
+            const dropdown = document.getElementById(menuId);
+            dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+        }
+        
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                const dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    if (dropdowns[i].style.display === "block") {
+                        dropdowns[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+	
+	
+	<script>
+	function enviarFormulario(event){
+		event.preventDefault();
+		var nombre=document.getElementById('nombre').value;
+		
+		var correo=document.getElementById('correo').value;
+		
+				
+		if(nombre === "" || correo === ""){
+			
+			alert("Por favor, complete todos los campos.");
+			return;
+		}
+		
+		localStorage.setItem("nombre",nombre);
+		localStorage.setItem("correo",correo);
+		
+		
+		window.location.href="confirmacion.html";
+		
+	}
+	</script>
+</body>
+</html>

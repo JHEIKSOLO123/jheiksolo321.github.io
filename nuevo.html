@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Características del Producto</title>
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .gallery {
+            text-align: center;
+            margin: 20px;
+        }
+        .gallery img {
+            width: 300px; /* Ajusta el ancho fijo deseado */
+            height: 200px; /* Ajusta la altura fija deseada */
+            object-fit: cover; /* Mantiene la proporción y recorta si es necesario */
+            border-radius: 5px;
+            transition: opacity 0.5s ease;
+        }
+        .details {
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+        .nav-button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Características de la Computadora</h1>
+        <p>¡Descubre lo que hace de este producto la mejor opción!</p>
+    </header>
+
+    <div class="gallery">
+        <img id="galleryImage" src="COMPU1.jpg" alt="Característica del Producto">
+        <div>
+            <button class="nav-button" onclick="prevImage()">Anterior</button>
+            <button class="nav-button" onclick="nextImage()">Siguiente</button>
+        </div>
+    </div>
+
+    <div class="details">
+        <h2>Características Principales</h2>
+        <ul>
+            <li>✔ Procesador de última generación</li>
+            <li>✔ Pantalla Full HD</li>
+            <li>✔ Gran capacidad de almacenamiento</li>
+            <li>✔ Diseño ligero y portátil</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Compra Nuestro Producto. Todos los derechos reservados.</p>
+        <a href="index.html" style="color: white;">Volver a la Página Principal</a>
+    </footer>
+
+    <script>
+        const images = [
+            'COMPU1.jpg',
+            'COMPU2.jpg',
+            'COMPU3.jpg',
+            'COMPU4.jpg'
+        ];
+        let currentIndex = 0;
+
+        function updateImage() {
+            const galleryImage = document.getElementById('galleryImage');
+            galleryImage.src = images[currentIndex];
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage();
+        }
+    </script>
+</body>
+</html>
